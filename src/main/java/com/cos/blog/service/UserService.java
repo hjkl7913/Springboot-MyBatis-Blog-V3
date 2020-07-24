@@ -19,6 +19,7 @@ public class UserService {
 	@Transactional
 	public void 회원가입(User user) {
 		// try catch로 처리 할필요없이 오류시에 fail 로 보내도됨
+			user.setRole("ROLE_USER");
 			userRepository.save(user);	
 	}
 	
