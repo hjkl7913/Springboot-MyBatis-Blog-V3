@@ -19,7 +19,10 @@ public class WebConfig implements WebMvcConfigurer{ // implements WebMvcConfigur
 		
 		// 다른곳에서 사용 하지 않아서 굳이 IOC 할 필요 없음 
 		
-		registry.addInterceptor(new SessionIntercepter()).addPathPatterns("/user/**");
+		registry.addInterceptor(new SessionIntercepter())
+		.addPathPatterns("/user/**")
+		.addPathPatterns("/post/**")
+		.addPathPatterns("/post**");
 		
 		registry.addInterceptor(new RoleIntercepter()).addPathPatterns("/admin/**");
 	}

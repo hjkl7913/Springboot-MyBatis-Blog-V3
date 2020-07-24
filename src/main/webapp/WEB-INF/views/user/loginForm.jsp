@@ -20,7 +20,7 @@
        <div class="invalid-feedback">Please fill out this field.</div>
      </div>
 
-     <button id="btn-login" type="submit" class="btn btn-primary">로그인</button>
+     <button id="btn-login" type="button" class="btn btn-primary">로그인</button>
    </form>
 </div>
 
