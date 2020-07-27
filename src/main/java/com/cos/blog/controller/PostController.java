@@ -1,7 +1,7 @@
 package com.cos.blog.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,5 +32,12 @@ public class PostController {
 	public @ResponseBody CommonRespDto<?> postProc(@RequestBody Post post) {
 		postService.글쓰기(post);
 		return new CommonRespDto<String>(1,"글쓰기 성공");
+	}
+	
+	//post관련된 것은 전부다 인증 필요하게!!
+	@GetMapping("/posts")
+	public String getPosts(Model model){ //model 데이터 담고 이동할때 사용 (Requestdispatcher)
+		model.addAttribute("posts", postService.목록보기());
+		return "index";
 	}
 }
