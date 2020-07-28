@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.blog.model.User;
+import com.cos.blog.controller.dto.PostDetailRespDto;
 import com.cos.blog.model.Post;
 import com.cos.blog.repository.PostRepository;
 import com.cos.blog.repository.UserRepository;
@@ -30,5 +31,19 @@ public class PostService {
 		 return postRepository.findAll();
 	}
 	
+	@Transactional(readOnly = true)
+	public PostDetailRespDto 상세보기(int id) {
+		 return postRepository.findById(id);
+	}
+	
+	@Transactional
+	public void 삭제하기(int id) {
+		 postRepository.deleteById(id);
+	}
+	
+	@Transactional
+	public void 수정하기(Post post) {
+		 postRepository.update(post);
+	}
 	
 }
